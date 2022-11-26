@@ -11,7 +11,7 @@ const mongoose = require('mongoose');
 const PORT = 1200;
 
 // MongoDB connection string pointing to db named 'G3A4'
-const dbURL = "mongodb+srv://admin:Underling666@cluster0.zkxltog.mongodb.net/G3A4";
+const dbURL = "mongodb+srv://admin:Underling999@cluster0.zkxltog.mongodb.net/G3A4";
 
 // connect to MongoDB
 mongoose.connect(dbURL,
@@ -118,7 +118,8 @@ app.post('/addCourse', async (req, res) => {
 app.get('/getAllCourses', async (req, res) => {
     try {
         let courses = await Course.find({}).lean();
-        return res.status(200).json(courses);
+        // return res.status(200).json(courses);
+        return res.status(200).json({'courses': courses});
     } catch {
         return res.status(500).json('message: failed to get courses');
     }
